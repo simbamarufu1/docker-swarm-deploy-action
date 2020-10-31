@@ -26,10 +26,6 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     eval $(ssh-agent)
     ssh-add "$HOME/.ssh/docker"
 
-    echo $SSH_HOST
-    cat $HOME/.ssh/known_hosts
-    ssh-keygen -R $SSH_HOST -f $HOME/.ssh/docker
-    cat $HOME/.ssh/known_hosts
 
 fi
 
