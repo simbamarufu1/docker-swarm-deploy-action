@@ -16,6 +16,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
         exit 1
     fi
 
+    ssh-keyscan -H ${INPUT_REMOTE_HOST#*@} >> $HOME/.ssh/known_hosts
     echo "Registering SSH keys..."
 
     # Save private key to a file and register it with the agent.
