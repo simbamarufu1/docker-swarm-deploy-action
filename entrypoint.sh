@@ -17,10 +17,6 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     fi
 
 
-    echo $SSH_HOST
-    cat $HOME/.ssh/known_hosts
-    ssh-keygen -R $SSH_HOST
-    cat $HOME/.ssh/known_hosts
     echo "Registering SSH keys..."
 
     # Save private key to a file and register it with the agent.
@@ -29,6 +25,11 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     chmod 600 "$HOME/.ssh/docker"
     eval $(ssh-agent)
     ssh-add "$HOME/.ssh/docker"
+
+    echo $SSH_HOST
+    cat $HOME/.ssh/known_hosts
+    ssh-keygen -R $SSH_HOST -f $HOME/.ssh/docker
+    cat $HOME/.ssh/known_hosts
 
 fi
 
