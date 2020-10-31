@@ -19,7 +19,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 
     echo $SSH_HOST
     cat $HOME/.ssh/known_hosts
-    ssh-keygen -R SSH_HOST
+    ssh-keygen -R $SSH_HOST
     cat $HOME/.ssh/known_hosts
     echo "Registering SSH keys..."
 
