@@ -1,7 +1,6 @@
 FROM docker:stable
 
 LABEL "name"="Docker Swarm Deploy Action"
-LABEL "maintainer"="Stephen Coakley <me@stephencoakley.com>"
 
 LABEL "com.github.actions.name"="Docker Swarm Deploy"
 LABEL "com.github.actions.description"="Deploy a stack to a remote Docker swarm."
