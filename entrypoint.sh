@@ -28,6 +28,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     chmod -R 600 "$HOME/.ssh"
     cp /tmp/config "$HOME/.ssh/config"
     chmod 777 "$HOME/.ssh/config"
+    cat "$HOME/.ssh/config"
     ls -l "$HOME/.ssh"
     eval $(ssh-agent)
     ls -l "$HOME/.ssh"
