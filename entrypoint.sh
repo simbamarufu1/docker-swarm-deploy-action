@@ -20,13 +20,13 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     echo "Registering SSH keys..."
 
     # Save private key to a file and register it with the agent.
-    cp /tmp/config "$HOME/.ssh/config"
     ls -l "$HOME/.ssh"
     mkdir -p "$HOME/.ssh"
     ls -l "$HOME/.ssh"
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/docker"
     ls -l "$HOME/.ssh"
     chmod -R 600 "$HOME/.ssh"
+    cp /tmp/config "$HOME/.ssh/config"
     ls -l "$HOME/.ssh"
     eval $(ssh-agent)
     ls -l "$HOME/.ssh"
