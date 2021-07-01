@@ -9,7 +9,7 @@ LABEL "com.github.actions.color"="blue"
 
 RUN apk --no-cache add openssh-client
 
-COPY config /root/.ssh/config
+COPY config /tmp/config
 COPY entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
