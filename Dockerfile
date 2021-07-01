@@ -12,4 +12,4 @@ RUN apk --no-cache add openssh-client
 COPY config /root/.ssh/config
 COPY entrypoint.sh /entrypoint.sh
 
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
