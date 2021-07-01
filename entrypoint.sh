@@ -26,7 +26,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     eval $(ssh-agent)
     ssh-add "$HOME/.ssh/docker"
     ls -l "$HOME/.ssh"
-    echo "$USER"
+    who
 
 
 fi
