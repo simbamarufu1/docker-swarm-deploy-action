@@ -27,6 +27,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     ls -l "$HOME/.ssh"
     chmod -R 600 "$HOME/.ssh"
     cp /tmp/config "$HOME/.ssh/config"
+    ssh-keyscan -H "$INPUT_REMOTE_HOST" > "$HOME/.ssh/known_hosts"
     chmod 400 "$HOME/.ssh/config"
     cat "$HOME/.ssh/config"
     ls -l "$HOME/.ssh"
