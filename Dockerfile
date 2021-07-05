@@ -1,4 +1,4 @@
-FROM docker:stable
+FROM docker:20.10.7
 
 LABEL "name"="Docker Swarm Deploy Action"
 
