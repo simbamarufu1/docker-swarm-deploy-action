@@ -29,7 +29,6 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     #chmod 400 "$HOME/.ssh/config"
     eval $(ssh-agent)
     ssh-add "$HOME/.ssh/docker"
-    whoami
 
 
 fi
