@@ -22,7 +22,6 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     # Save private key to a file and register it with the agent.
 
     mkdir -p "/root/.ssh"
-    echo "test"
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "/root/.ssh/docker"
     cp /tmp/config "/root/.ssh/config"
 
