@@ -23,6 +23,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 
     mkdir -p "$HOME/.ssh"
     echo "$HOME"
+    echo "test"
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/docker"
     cp /tmp/config "$HOME/.ssh/config"
 
