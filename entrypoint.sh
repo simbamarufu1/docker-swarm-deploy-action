@@ -25,7 +25,6 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/docker"
     cp /tmp/config "$HOME/.ssh/config"
 
-    ssh-keyscan -H "$SSH_HOST"
     ssh-keyscan -H "$SSH_HOST" > "$HOME/.ssh/known_hosts"
     chmod -R 600 "$HOME/.ssh"
     #chmod 400 "$HOME/.ssh/config"
@@ -35,4 +34,4 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 fi
 
 echo "Connecting to $INPUT_REMOTE_HOST..."
-docker --log-level debug --host "$INPUT_REMOTE_HOST" "$@" 2>&1
+docker --log-level debug --host "$INPUT_REMOTE_HOST" container ls
