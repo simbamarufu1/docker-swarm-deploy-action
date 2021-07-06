@@ -23,11 +23,10 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 
     mkdir -p "/root/.ssh"
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "/root/.ssh/docker"
-    cp /tmp/config "/root/.ssh/config"
 
     ssh-keyscan -H "$SSH_HOST" > "/root/.ssh/known_hosts"
     chmod -R 600 "/root/.ssh"
-    #chmod 400 "$HOME/.ssh/config"
+
     eval $(ssh-agent)
     ssh-add "/root/.ssh/docker"
 
