@@ -22,6 +22,7 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
     # Save private key to a file and register it with the agent.
 
     mkdir -p "$HOME/.ssh"
+    echo "$HOME"
     printf '%s' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/docker"
     cp /tmp/config "$HOME/.ssh/config"
 
@@ -34,4 +35,4 @@ if [ ${INPUT_REMOTE_HOST#"ssh://"} != "$INPUT_REMOTE_HOST" ]; then
 fi
 
 echo "Connecting to $INPUT_REMOTE_HOST..."
-docker --log-level debug --host "$INPUT_REMOTE_HOST" container ls
+docker --log-level debug --host "$INPUT_REMOTE_HOST" "$@" 2>&1
