@@ -18,6 +18,22 @@ Below is a brief example on how the action can be used:
 
 If you are deploying any private Docker images, you can use the [Docker Login](https://github.com/marketplace/actions/docker-login) action to first log in to your private registry, and then provide the `--with-registry-auth` flag to `docker stack deploy` to use the logged in credentials during deployment.
 
+In order for `--with-registry-auth` to work you need to also set the `DOCKER_CONFIG` environment variable for your tasks to ensure the login config is accessible within this tasks container.
+
+i.e.
+```sh
+job-name:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_CONFIG: $HOME/.docker
+    steps:
+      -
+        <docker login>
+      -
+        <swarm deploy>
+
+```
+
 ## Inputs
 
 Below are all of the supported inputs. Some inputs used to authenticate with your swarm should be kept private, and should be supplied as secrets for security.
